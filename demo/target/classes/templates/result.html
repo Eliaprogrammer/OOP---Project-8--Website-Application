@@ -1,0 +1,34 @@
+<!--Result page to display the information after the user submits their information-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<!-- Name of the web tab   -->
+    <title>Result</title>
+<!-- Basic page styling for the header and body -->
+    <style>
+        h1{
+            font-size: 26pt;
+            font-family:"Times New Roman", serif;
+            color: cadetblue;
+        }
+        body{
+            font-size: 14pt;
+        }
+    </style>
+</head>
+<body>
+
+<h1>
+    Elia Schwartz: COP 3330C-33777 Project 8: Results
+</h1>
+<!--Inform the user about the details submitted-->
+<p>Here is the <em>data </em> you entered.</p>
+<!-- Display the form data using Thymeleaf expression-->
+<p th:text = " 'Student ID: ' + ${greeting.studentID}"></p>
+<p th:text = " 'Date: ' + ${formattedDate}"></p>
+<p th:text = " 'Message: ' + ${greeting.message}"></p>
+<!--Link to return to the greeting page form and submit a new response-->
+<a href = "/greeting"> Submit another message</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!--Greeting form page that allows user input -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Web tab title  -->
+    <title>Project 8: Greeting</title>
+    <!-- Basic page styling for the header, body text, and button section  -->
+    <style>
+        h1{
+            font-size: 32pt;
+            font-family: "Times New Roman", serif;
+            color: cadetblue;
+        }
+        body{
+            font-size: 14pt;
+        }
+        .button{
+            font-size: 12pt;
+            text-align: center;
+            border: lightgrey;
+            background-color: cadetblue;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <header>
+        <!-- Page header -->
+        <h1> Elia Schwartz: COP 3330C-33777 Project 8: Greeting</h1>
+        <!-- Instructions to the user -->
+        <p><strong><em>Please enter your student ID, a date and message below</em></strong></p>
+        <!-- Display an error statement if it occurs-->
+        <p th:if = "${error}" th:text = "${error}" class = "error"></p>
+
+        <!--A form for users to fill out -->
+        <form th:action = "@{/greeting}" th:object = "${greeting}" method = "post">
+            <label><strong> Student ID: </strong><input type = "text" th:field = "*{studentID}" placeholder="Student ID" /></label><br>
+            <label><strong> Month: </strong><input type = "number" th:field = "*{month}" placeholder="MM" min = "1" max = "12"/></label><br>
+            <label><strong> Day: </strong><input type = "number" th:field = "*{day}" placeholder="DD" min ="1" max ="31"/></label><br>
+            <label><strong> Year: </strong><input type = "number" th:field = "*{year}" placeholder="YYYY" min = "1800" max = "2060" /></label><br>
+            <label><Strong> Message:</strong> <textarea th:field = "*{message}" ></textarea></label><br>
+<br>
+<!-- Submit and reset form buttons  -->
+            <button type = "submit" class = "button">Enter data</button>
+            <button type = "reset" class = "button">Clear</button>
+        </form>
+    </header>
+</div>
+</body>
+</html>
